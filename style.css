@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 8px;
+}
+
+/* 滾動視差核心設定 */
+.parallax-section {
+    position: relative;
+    height: 100vh; /* 每一則公告佔滿一屏 */
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    
+    /* 視差效果關鍵 */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 替換成你自己的宇宙背景圖 */
+.bg-1 { background-image: url('./png/2026-03-26_21.14.54.png'); }
+.bg-2 { background-image: url('./png/2025-10-09_20.56.59.png'); }
+.bg-3 { background-image: url('./png/2026-03-22_21.25.56.png'); }
+
+/* 內容樣式 */
+.content {
+    max-width: 500px;
+    z-index: 2;
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(108, 108, 108, 0.3);
+}
+
+.line {
+    width: 60px;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 16px;
+    text-transform: none; /* 描述文字不強制大寫，增加閱讀性 */
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* SpaceX 風格按鈕 */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* 語言切換器樣式 */
+.lang-switch {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.lang-switch:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 讓切換過程有一點淡入淡出的感覺 */
+[data-zh], [data-en] {
+    transition: opacity 0.3s ease;
+}
+
+/* 行動端優化：手機端通常不支持 fixed 背景，建議關閉視差 */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll;
+        padding-left: 20px;
+    }
+    .title { font-size: 32px; }
+}
